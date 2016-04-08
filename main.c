@@ -46,7 +46,6 @@ SUCH DAMAGE.
 #ifndef NELEM
 #define NELEM(x) ((int)(sizeof(x) / sizeof((x)[0])))
 #endif
-
 // Define the line below to turn on poor man's debugging output
 #undef SUPERDEBUG
 
@@ -860,7 +859,8 @@ bail:
 */
 
 int main(int argc, char **argv) {
-  printf("Temp main\n");
+
+  loadExifInfo(argv[1], FALSE);
 
   return 0;
 }
