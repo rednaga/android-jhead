@@ -6,7 +6,6 @@
 #include "jhead.h"
 
 #include <string.h>
-#include <utils/Log.h>
 
 
 #define TAG_GPS_LAT_REF    1
@@ -60,7 +59,7 @@ static TagTable_t GpsTags[]= {
 #undef SUPERDEBUG
 
 #ifdef SUPERDEBUG
-#define printf ALOGE
+#define printf printf
 #endif
 
 
@@ -278,7 +277,7 @@ void ProcessGpsInfo(unsigned char * DirStart, int ByteCountUnused, unsigned char
                         (char*)(ValuePtr + EXIF_ASCII_PREFIX_LEN), length);
                     ImageInfo.GpsProcessingMethod[length] = 0;
                 } else {
-                    ALOGW("Unsupported encoding for GPSProcessingMethod");
+                    printf("Unsupported encoding for GPSProcessingMethod");
                 }
                 break;
         }

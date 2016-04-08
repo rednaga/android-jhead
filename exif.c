@@ -10,7 +10,6 @@
 
 #include <math.h>
 #include <ctype.h>
-#include <utils/Log.h>
 
 static unsigned char * DirWithThumbnailPtrs;
 static double FocalplaneXRes;
@@ -28,7 +27,7 @@ int NumOrientations = 0;
 #undef SUPERDEBUG
 
 #ifdef SUPERDEBUG
-#define printf ALOGE
+#define printf printf
 #endif
 
 //--------------------------------------------------------------------------
@@ -1335,7 +1334,7 @@ static void create_EXIF_internal(ExifElement_t* elements, int exifTagCount, int 
     int DirExifLink = 0;
 
 #ifdef SUPERDEBUG
-    ALOGE("create_EXIF %d exif elements, %d gps elements", exifTagCount, gpsTagCount);
+    printf("create_EXIF %d exif elements, %d gps elements", exifTagCount, gpsTagCount);
 #endif
 
     MotorolaOrder = 0;
@@ -1396,7 +1395,7 @@ static void create_EXIF_internal(ExifElement_t* elements, int exifTagCount, int 
                     continue;
                 }
 #ifdef SUPERDEBUG
-                ALOGE("create_EXIF saving tag %x value \"%s\"",elements[i].Tag, elements[i].Value);
+                printf("create_EXIF saving tag %x value \"%s\"",elements[i].Tag, elements[i].Value);
 #endif
                 writeExifTagAndData(elements[i].Tag,
                                     entry->Format,
@@ -1462,7 +1461,7 @@ static void create_EXIF_internal(ExifElement_t* elements, int exifTagCount, int 
                     continue;
                 }
 #ifdef SUPERDEBUG
-                ALOGE("create_EXIF saving GPS tag %x value \"%s\"",elements[i].Tag, elements[i].Value);
+                printf("create_EXIF saving GPS tag %x value \"%s\"",elements[i].Tag, elements[i].Value);
 #endif
                 writeExifTagAndData(elements[i].Tag,
                                     entry->Format,

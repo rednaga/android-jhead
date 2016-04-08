@@ -14,7 +14,6 @@
 #include "jhead.h"
 
 #include <sys/stat.h>
-#include <utils/Log.h>
 
 #define JHEAD_VERSION "2.87"
 
@@ -104,7 +103,7 @@ static int ShowFileInfo = TRUE;     // Indicates to show standard file info
 //--------------------------------------------------------------------------
 void ErrFatal(char * msg)
 {
-    ALOGE("Error : %s\n", msg);
+    printf("Error : %s\n", msg);
     if (CurrentFile) fprintf(stderr,"in file '%s'\n",CurrentFile);
     exit(EXIT_FAILURE);
 } 
@@ -115,8 +114,8 @@ void ErrFatal(char * msg)
 //--------------------------------------------------------------------------
 void ErrNonfatal(char * msg, int a1, int a2)
 {
-    ALOGV("Nonfatal Error : ");
-    ALOGV(msg, a1, a2);
+    printf("Nonfatal Error : ");
+    printf(msg, a1, a2);
     if (SupressNonFatalErrors) return;
 
     fprintf(stderr,"\nNonfatal Error : ");
