@@ -7,7 +7,7 @@ CFLAGS:= $(CFLAGS) -O3 -Wall
 
 all: jhead
 
-objs = $(OBJ)/jhead.o $(OBJ)/jpgfile.o \
+objs = $(OBJ)/jhead.o $(OBJ)/jpgfile.o $(OBJ)/main.o \
 	$(OBJ)/exif.o $(OBJ)/iptc.o $(OBJ)/gpsinfo.o $(OBJ)/makernote.o 
 
 $(OBJ)/%.o:$(SRC)/%.c
