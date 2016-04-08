@@ -31,8 +31,8 @@ SUCH DAMAGE.
 
 */
 
-#include <nativehelper/JNIHelp.h>
-#include <nativehelper/jni.h>
+//#include <nativehelper/JNIHelp.h>
+//#include <nativehelper/jni.h>
 
 #include <assert.h>
 #include <ctype.h>
@@ -54,6 +54,7 @@ SUCH DAMAGE.
 #undef REALLOCTEST
 #undef OUTOFMEMORYTEST1
 
+/*
 static void addExifAttibute(JNIEnv *env, jmethodID putMethod, jobject hashMap, char* key, char* value) {
     jstring jkey = (*env)->NewStringUTF(env, key);
     jstring jvalue = (*env)->NewStringUTF(env, value);
@@ -63,6 +64,7 @@ static void addExifAttibute(JNIEnv *env, jmethodID putMethod, jobject hashMap, c
     (*env)->ReleaseStringUTFChars(env, jkey, key);
     (*env)->ReleaseStringUTFChars(env, jvalue, value);
 }
+*/
 
 extern void ResetJpgfile();
 
@@ -191,6 +193,7 @@ void copyThumbnailData(uchar* thumbnailData, int thumbnailLen) {
     ExifSection->Size = NewExifSize;
 }
 
+/*
 static void saveAttributes(JNIEnv *env, jobject jobj, jstring jfilename, jstring jattributes)
 {
 #ifdef SUPERDEBUG
@@ -390,7 +393,9 @@ exit:
 //
 //    jmethodID getValueMethod = (*env)->GetMethodID(env, jclass_of_mapentry, "getValue", "()Ljava/lang/Object");
 }
+*/
 
+/*
 static jboolean appendThumbnail(JNIEnv *env, jobject jobj, jstring jfilename, jstring jthumbnailfilename)
 {
 #ifdef SUPERDEBUG
@@ -419,7 +424,9 @@ static jboolean appendThumbnail(JNIEnv *env, jobject jobj, jstring jfilename, js
     DiscardData();
     return JNI_TRUE;
 }
+*/
 
+/*
 static void commitChanges(JNIEnv *env, jobject jobj, jstring jfilename)
 {
 #ifdef SUPERDEBUG
@@ -474,7 +481,9 @@ noThumbnail:
     DiscardData();
     return NULL;
 }
+*/
 
+/*
 static jlongArray getThumbnailRange(JNIEnv *env, jobject jobj, jstring jfilename) {
     jlongArray resultArray = NULL;
     const char* filename = (*env)->GetStringUTFChars(env, jfilename, NULL);
@@ -503,8 +512,10 @@ done:
     DiscardData();
     return resultArray;
 }
+*/
 
 static int attributeCount;      // keep track of how many attributes we've added
+
 
 // returns new buffer length
 static int addKeyValueString(char** buf, int bufLen, const char* key, const char* value) {
@@ -560,6 +571,7 @@ static int addKeyValueRational(char** buf, int bufLen, const char* key, rat_t va
     return addKeyValueString(buf, bufLen, key, valueStr);
 }
 
+/*
 static jstring getAttributes(JNIEnv *env, jobject jobj, jstring jfilename)
 {
 #ifdef SUPERDEBUG
@@ -765,9 +777,11 @@ static jstring getAttributes(JNIEnv *env, jobject jobj, jstring jfilename)
     DiscardData();
     return result;
 }
+*/
 
 static const char *classPathName = "android/media/ExifInterface";
 
+/*
 static JNINativeMethod methods[] = {
   {"saveAttributesNative", "(Ljava/lang/String;Ljava/lang/String;)V", (void*)saveAttributes },
   {"getAttributesNative", "(Ljava/lang/String;)Ljava/lang/String;", (void*)getAttributes },
@@ -776,10 +790,13 @@ static JNINativeMethod methods[] = {
   {"getThumbnailNative", "(Ljava/lang/String;)[B", (void*)getThumbnail },
   {"getThumbnailRangeNative", "(Ljava/lang/String;)[J", (void*)getThumbnailRange },
 };
+*/
+
 
 /*
  * Register several native methods for one class.
  */
+/*
 static int registerNativeMethods(JNIEnv* env, const char* className,
     JNINativeMethod* gMethods, int numMethods)
 {
@@ -798,21 +815,25 @@ static int registerNativeMethods(JNIEnv* env, const char* className,
 
     return JNI_TRUE;
 }
+*/
 
 /*
  * Register native methods for all classes we know about.
  */
+/*
 static int registerNatives(JNIEnv* env)
 {
     return jniRegisterNativeMethods(env, classPathName,
                                     methods, NELEM(methods));
 }
+*/
 
 /*
  * Set some test stuff up.
  *
  * Returns the JNI version on success, -1 on failure.
  */
+/*
 __attribute__ ((visibility("default"))) jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {
     JNIEnv* env = NULL;
@@ -831,12 +852,12 @@ __attribute__ ((visibility("default"))) jint JNI_OnLoad(JavaVM* vm, void* reserv
         goto bail;
     }
 
-    /* success -- return valid version number */
     result = JNI_VERSION_1_4;
 
 bail:
     return result;
 }
+*/
 
 int main(int argc, char **argv) {
   printf("Temp main\n");
